@@ -1,0 +1,88 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "iMacros",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#command"
+		},
+		{
+			"include": "#parameters"
+		},
+		{
+			"include": "#builtin_vars"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#escape_sequence"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "^\\s*'.*|(\\s|\\t)'.*$"
+				}
+			]
+		},
+		"command": {
+			"name": "support.function.imacros",
+			"match": "\\b(?i:add|back|clear|click|cmdline|disconnect|ds|extract|filedelete|filter|frame|imageclick|imagesearch|oncertificatedialog|ondialog|ondownload|onerrordialog|onlogin|onprint|onsecuritydialog|onwebpagedialog|pause|print|prompt|proxy|redial|refresh|saveas|set|size|stopwatch|tab|tag|url|version|wait|winclick|saveitem|eval|screenshot)\\b"
+		},
+		"parameters": {
+			"name": "variable.parameter.imacros",
+			"match": "(\\s+)(?i:x|y|content|name|type|status|t|pos|button|folder|file|wait|continue|user|password|id|form|attr|extract|goto|build|recorder|seconds|xpath|selector)(\\s*=)"
+		},
+		"builtin_vars": {
+			"name": "support.variable.imacros",
+			"match": "(\\s*)(!(?i:var[0-9]|encryption|imagefilter|downloadpdf|useragent|loop|extract|extractadd|extract_test_popup|errorignore|filestopwatch|datasource(?:_line|_columns|_delimiter)?|col\\d+|timeout(?i:_macro|_page|_step|_download)?|replayspeed|slow|medium|fast|singlestep|clipboard|file_profiler|stopwatchtime|urlcurrent|downloaded(?i:_file_name|_size)|now\\:\\S+))(\\b)"
+		},
+		"constants": {
+			"name": "constant.language.imacros",
+			"match": "(=|\\s+)(?i:yes|no|ok|cancel|storedkey|tmpkey|slow|medium|fast|images|cpl|mht|htm|txt|extract|png|jpeg|close|closeallothers|open|new)(\\b)"
+		},
+		"operators": {
+			"name": "keyword.operator.imacros",
+			"match": "(\\+=|=|==|\\+|-|\\*|\\^|/|\\||&|!|~|\\|<|<<|>|>>|\\?|:|%|\\$|\\s+\\.\\s+)"
+		},
+		"escape_sequence": {
+			"name": "constant.character.escape.imacros",
+			"match": "()(\\<(?:br|lf|sp)\\>)()"
+		},
+		"strings": {
+			"name": "string.quoted.double.imacros",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.imacros",
+					"match": "\\\\."
+				}
+			]
+		},
+		"variables": {
+			"match": "{{(.*)}}",
+			"name": "variable.other.imacros",
+			"captures": {
+				"0": {
+					"name": "variable.other.imacros"
+				}
+			}
+		}
+	},
+	"scopeName": "source.iim"
+}
