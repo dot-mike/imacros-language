@@ -3,10 +3,10 @@
     "displayName": "iMacros Language VS Code Plug-in unit",
     "description": "",
     "version": "0.0.1",
-    "publisher": "ColdIce1",
+    "publisher": "dot-mike",
     "repository": {
         "type": "git",
-        "url": "git://github.com/ColdIce1/imacros-language.git"
+        "url": "git://github.com/dot-mike/imacros-language.git"
     },
     "engines": {
         "vscode": "^1.62.0"
